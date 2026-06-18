@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Filhote Faz Isso? - Método de Adestramento</title>
+    
+    <!-- ======================================================================
+         COLE SEU PIXEL DO FACEBOOK / META AQUI EMBAIXO (DENTRO DO HEAD)
+         ====================================================================== -->
+    <!-- <script> 
+         !function(f,b,e,v,n,t,s){...}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+         fbq('init', 'SEU_NUMERO_DE_PIXEL_AQUI');
+         fbq('track', 'PageView');
+    </script> -->
+    <!-- ====================================================================== -->
+
+    <style>
+        /* Reset e Base */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #ffffff;
+            background-color: #0d1b2a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Cores do Projeto (Premium Hotmart Style) */
+        :root {
+            --azul-escuro: #0a1424;
+            --azul-intermediario: #111e38;
+            --branco-puro: #ffffff;
+            --cinza-claro: #f8f9fa;
+            --texto-escuro: #1a202c;
+            --amarelo-vibrante: #f4d35e;
+            --vermelho-alerta: #e63946;
+            --verde-sucesso: #2a9d8f;
+        }
+
+        /* Seções Alternadas (Igual à imagem enviada) */
+        .section-dark {
+            background-color: var(--azul-escuro);
+            padding: 80px 20px;
+            color: var(--branco-puro);
+        }
+        .section-white {
+            background-color: var(--branco-puro);
+            padding: 80px 20px;
+            color: var(--texto-escuro);
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Seção HERO (Grid de 2 Colunas) */
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        .hero-text { flex: 1; min-width: 300px; }
+        .hero-img { flex: 1; min-width: 300px; display: flex; justify-content: center; }
+
+        .badge {
+            background-color: var(--vermelho-alerta);
+            color: white;
+            padding: 6px 12px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            border-radius: 4px;
+            display: inline-block;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 30px;
+        }
+
+        /* CTA Botão Gigante Comercial */
+        .btn-cta {
+            display: inline-block;
+            background-color: var(--amarelo-vibrante);
+            color: var(--azul-escuro);
+            font-weight: 900;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            padding: 20px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(244, 211, 94, 0.3);
+            border-bottom: 5px solid #caa113;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-align: center;
+        }
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px rgba(244, 211, 94, 0.4);
+        }
+
+        /* Seção Branca - Texto de Impacto */
+        .section-white h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .section-white p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        /* Grid de Benefícios e Problemas (Cards Comerciais) */
+        .grid-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 40px;
+            justify-content: center;
+        }
+
+        .card-comercial {
+            background-color: var(--azul-intermediario);
+            border: 1px solid #1e2d4a;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: left;
+            transition: transform 0.2s;
+            flex: 1;
+            min-width: 280px;
+            max-width: 340px;
+        }
+        .card-comercial:hover { transform: translateY(-5px); }
+        .card-comercial .icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .card-comercial h3 {
+            font-size: 1.2rem;
+            color: var(--amarelo-vibrante);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .card-comercial p {
+            font-size: 0.95rem;
+            color: #e2e8f0;
+        }
+
+        /* Seção de Depoimentos Sociais (Prova Social) */
+        .section-testimonials {
+            background-color: var(--cinza-claro);
+            color: var(--texto-escuro);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .section-testimonials h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+        }
+        .testimonial-box {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            text-align: left;
+            border-left: 5px solid var(--verde-sucesso);
+        }
+        .testimonial-box p {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--azul-escuro);
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #050b14;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #718096;
+            border-top: 1px solid #1a202c;
+        }
+        footer a { color: #a0aec0; text-decoration: underline; margin: 0 10px; }
+    </style>
+</head>
+<body>
+
+    <!-- SEÇÃO 1: HERO (FUNDO ESCURO - IGUAL AO TOPO DA CAPTURA DE TELA 2026-06-18 093941.JPG) -->
+    <section class="section-dark">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <span class="badge">🔥 MÉTODO EXCLUSIVO</span>
+                <h1>GANHE A OBEDIÊNCIA DO SEU FILHOTE <span style="color: var(--amarelo-vibrante);">COMEÇANDO DO ZERO</span></h1>
+                <p class="subtitle">Descubra as técnicas exatas para fazer seu cão fazer xixi no lugar certo, parar de morder móveis e te obedecer na primeira vez.</p>
+                <a href="#oferta" class="btn-cta">QUERO MEU CÃO COMPORTADO AGORA ➔</a>
+            </div>
+            
+            <div class="hero-img">
+                <!-- Desenho Vetorial Inteligente Representando a Capa (Pode ser editado por imagem depois) -->
+                <svg width="240" height="320" viewBox="0 0 220 290" style="filter: drop-shadow(0px 15px 20px rgba(0,0,0,0.6));">
+                    <rect width="220" height="290" fill="#111e38" rx="8"/>
+                    <rect width="220" height="15" fill="#e63946"/>
+                    <text x="110" y="45" font-family="Arial" font-size="12" fill="#e63946" font-weight="bold" text-anchor="middle">🚨 GUIA PRÁTICO</text>
+                    <text x="110" y="85" font-family="Arial" font-size="18" fill="#ffffff" font-weight="900" text-anchor="middle">SEU FILHOTE</text>
+                    <text x="110" y="110" font-family="Arial" font-size="18" fill="#f4d35e" font-weight="900" text-anchor="middle">FAZ ISSO?</text>
+                    <circle cx="110" cy="175" r="30" fill="#f4d35e" opacity="0.2"/>
+                    <path d="M105,165 Q110,155 115,165 Q125,180 110,190 Q95,180 105,165 Z" fill="#f4d35e" />
+                    <text x="110" y="240" font-family="Arial" font-size="9" fill="#ffffff" font-weight="bold" text-anchor="middle">Xixi Certo e Sem Destruição</text>
+                    <text x="110" y="260" font-family="Arial" font-size="9" fill="#2a9d8f" font-weight="bold" text-anchor="middle">✓ Hotmart Premium</text>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 2: IMPACTO (FUNDO BRANCO - IGUAL AO MEIO DA CAPTURA DE TELA 2026-06-18 093941.JPG) -->
+    <section class="section-white">
+        <div class="container">
+            <h2>Você ama seu cachorro, mas nunca imaginou que conviver com a bagunça seria <span style="border-bottom: 3px solid var(--amarelo-vibrante); color: #0a1424;">tão cansativo?</span></h2>
+            <p>Chinelos mordidos, tapetes estragados, latidos na hora errada e a constante frustração de limpar o chão o dia todo. O problema não é o seu filhote, é apenas a falta de um método simples de comunicação positiva.</p>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 3: GRADE DE BENEFÍCIOS (FUNDO ESCURO - IGUAL ÀS CAIXAS DA IMAGEM) -->
+    <section class="section-dark">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 10px;">O QUE O MÉTODO VAI RESOLVER NA SUA ROTINA:</h2>
+            <p style="text-align: center; color: #a0aec0; margin-bottom: 40px;">Resultados rápidos aplicando apenas 15 minutos por dia.</p>
+            
+            <div class="grid-cards">
+                <div class="card-comercial">
+                    <span class="icon">🎯</span>
+                    <h3>Xixi no Lugar Certo</h3>
+                    <p>Um passo a passo infalível para ele entender onde é o banheiro definitivo e nunca mais errar.</p>
+                </div>
+                <div class="card-comercial">
+                    <span class="icon">🚫</span>
+                    <h3>Fim das Mordidas</h3>
+                    <p>Aprenda a direcionar a ansiedade dele para os brinquedos certos, salvando seus móveis e roupas.</p>
+                </div>
+                <div class="card-comercial">
+                    <span class="icon">🤫</span>
+                    <h3>Latidos Controlados</h3>
+                    <p>Técnicas de acalento para o filhote ficar tranquilo e silencioso mesmo quando você não estiver em casa.</p>
+                </div>
+                <div class="card-comercial">
+                    <span class="icon">⚡</span>
+                    <h3>Comandos Básicos</h3>
+                    <p>Faça seu cachorro sentar, deitar, ficar e vir até você no primeiro comando, de forma natural.</p>
+                </div>
+                <div class="card-comercial">
+                    <span class="icon">🌱</span>
+                    <h3>Zero Punições</h3>
+                    <p>Método baseado 100% em psicologia positiva. Sem brigas, sem traumas e sem nenhum tipo de violência.</p>
+                </div>
+                <div class="card-comercial">
+                    <span class="icon">📱</span>
+                    <h3>Acesso Imediato</h3>
+                    <p>Receba o material diretamente no seu e-mail logo após a aprovação e comece a mudar o comportamento hoje.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 4: DEPOIMENTOS E COMENTÁRIOS REALISTAS -->
+    <section class="section-testimonials">
+        <div class="container">
+            <h2>Quem já testou o método aprovou:</h2>
+            
+            <div class="testimonial-box">
+                <p>"O Marley destruía os pés da mesa e urinava na sala toda. Com apenas 4 dias aplicando as orientações, ele entendeu perfeitamente o tapete higiênico. Valeu cada centavo!"</p>
+                <div class="testimonial-author">Mariana S. — São Paulo / SP</div>
+            </div>
+
+            <div class="testimonial-box">
+                <p>"Eu já não sabia mais o que fazer com os latidos da Luna quando eu saía para trabalhar. O Módulo de Rotina mudou totalmente nossa vida. Ela está super calma."</p>
+                <div class="testimonial-author">Ricardo M. — Curitiba / PR</div>
+            </div>
+            
+            <div class="testimonial-box" id="oferta">
+                <p>"Comprei achando que seria difícil por eu não ter experiência, mas os comandos são incrivelmente diretos. O Thor parou de morder nossas mãos logo na primeira semana."</p>
+                <div class="testimonial-author">Camila F. — Belo Horizonte / MG</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO FINAL: OFERTA IRRECUSÁVEL -->
+    <section class="section-dark" style="text-align: center; border-top: 2px solid var(--amarelo-vibrante);">
+        <div class="container" style="max-width: 600px;">
+            <h2 style="color: var(--amarelo-vibrante); margin-bottom: 20px;">Adquira hoje com desconto especial</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 10px; text-decoration: line-through; opacity: 0.5;">De R$ 97,00</p>
+            <p style="font-size: 3rem; font-weight: 900; color: var(--verde-sucesso); margin-bottom: 20px;">Por R$ 37,90</p>
+            <p style="font-size: 0.9rem; color: #cbd5e1; margin-bottom: 30px;">🔐 Pagamento Seguro Intermediado pela Hotmart • Garantia incondicional de 7 dias.</p>
+            <a href="#" class="btn-cta" style="background-color: var(--verde-sucesso); color: white; border-bottom: 5px solid #1f7367;">COMPRAR EBOOK AGORA ➔</a>
+        </div>
+    </section>
+
+    <!-- RODAPÉ LEGAL -->
+    <footer>
+        <div class="container">
+            <p>Copyright © 2026 • Seu Filhote Faz Isso? • Todos os direitos reservados.</p>
+            <p style="margin: 15px 0;">
+                <a href="#">Políticas de Privacidade</a> | 
+                <a href="#">Termos de Uso</a> | 
+                <a href="#">Contato</a>
+            </p>
+            <p style="opacity: 0.5; font-size: 0.75rem;">Este site não possui vínculo com a plataforma do Facebook ou Meta Inc. Após sair do anúncio, a responsabilidade é do nosso domínio de distribuição.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
