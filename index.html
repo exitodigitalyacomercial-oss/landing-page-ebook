@@ -22,13 +22,45 @@
             margin: 0;
             padding: 0;
         }
-       body {
+      body {
     font-family: 'Arial', sans-serif;
     color: #ffffff;
-    background-color: #0d1b2a;
+    /* --- INSTRUCCIÓN DE FONDO --- */
+    /* 1. Mantenemos tu imagen actual fuerte */
+    background-image: url('tu-archivo-de-huellas.png');
+    background-repeat: repeat;
+    background-attachment: fixed;
+    /* 2. ESTA ES LA CLAVE: Superponemos un azul oscuro semitransparente (RGBA) */
+    /* El valor '0.92' (92% opacidad) suaviza muchísimo el patrón blanco */
+    background-color: rgba(13, 27, 42, 0.92);
+    /* Asegura que el color esté POR ENCIMA de la imagen */
+    background-blend-mode: multiply;
+    /* ----------------------------- */
     line-height: 1.6;
     overflow-x: hidden;
 }
+        /* --- INSTRUCCIÓN PARA SECCIONES BLANCAS TEXTURIZADAS --- */
+.white-section-texture {
+    /* 1. Fondo blanco puro y forzado */
+    background-color: white !important;
+    position: relative;
+    /* Asegura que el texto y contenido estén sobre la textura */
+    z-index: 1;
+}
+
+/* Usamos un seudo-elemento para la textura sutil */
+.white-section-texture::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Mismo patrón de huellas */
+    background-image: url('tu-archivo-de-huellas.png');
+    background-repeat: repeat;
+    /* ESTA ES LA CLAVE: Opacidad muy baja (0.1 = 10% opacidad) */
+    opacity: 0.1;
+    z-index: -1; /* Pone la textura detrás del contenido de la sección */
+}
+/* -------------------------------------------------------- */
         section, .section-dark {
     background-image: url('huellas_fondo.png') !important;
     background-repeat: repeat !important;
