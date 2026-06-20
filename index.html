@@ -38,19 +38,6 @@
     /* Asegura que el texto y contenido estén sobre la textura */
     z-index: 1;
 }
-
-/* Usamos un seudo-elemento para la textura sutil */
-.white-section-texture::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    /* Mismo patrón de huellas */
-    background-image: url('tu-archivo-de-huellas.png');
-    background-repeat: repeat;
-    /* ESTA ES LA CLAVE: Opacidad muy baja (0.1 = 10% opacidad) */
-    opacity: 0.1;
-    z-index: -1; /* Pone la textura detrás del contenido de la sección */
-}
 /* -------------------------------------------------------- */
         section, .section-dark {
     background-image: url('huellas_fondo.png') !important;
